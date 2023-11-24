@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Gamelogic.Grids;
 using UnityEngine;
@@ -66,6 +67,81 @@ namespace Cihan
                     _partItem.transform.SetParent(_part.transform);
                     _partItem.OffsetI = 0;
                     _partItem.OffsetJ = 0;
+                    SpriteCell _cell = _partItem.Cell;
+                    //bu partItem'i düşeydeki boşluklara kaydır
+                    for (int j = _cell.J - 1; j >= 0; j--)
+                    {
+                        RectPoint _point = new RectPoint(_cell.I, j);
+                        if (grid.Contains(_point))
+                        {
+                            SpriteCell _c = grid[_point];
+                            if (_c.PartItem == null)
+                            {
+                                _partItem.OffsetJ = 0;
+                                _partItem.transform.SetParent(null);
+                                _part.transform.position = _c.transform.position;
+                                _partItem.transform.SetParent(_part.transform);
+                                _c.PartItem = _partItem;
+                                _cell.PartItem = null;
+                                _cell = _c;
+                                _partItem.Cell = _cell;
+                                _partItem.transform.DOLocalMove(Vector3.zero, 0.125f).SetEase(Ease.OutExpo);
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                    }
+
+                    Part[] _allParts = FindObjectsOfType<Part>().OrderBy(x => x.transform.position.magnitude).ToArray();
+                    //bu partları diketde boşluklara kaydır
+                    for (int i = 0; i < _allParts.Length; i++)
+                    {
+                        Part _p = _allParts[i];
+                        if (_p != _part)
+                        {
+                            for (int j = 0; j < _p.PartItems.Count; j++)
+                            {
+                                PartItem _pItem = _p.PartItems[j];
+                                for (int k = _pItem.Cell.J - 1; k >= 0; k--)
+                                {
+                                    RectPoint _point = new RectPoint(_pItem.Cell.I, k);
+                                    if (grid.Contains(_point))
+                                    {
+                                        SpriteCell _c = grid[_point];
+                                        if (_c.PartItem == null)
+                                        {
+                                            _pItem.OffsetJ = 0;
+                                            _pItem.transform.SetParent(null);
+                                            _p.transform.position = _c.transform.position;
+                                            _pItem.transform.SetParent(_p.transform);
+                                            _c.PartItem = _pItem;
+                                            _pItem.Cell.PartItem = null;
+                                            _pItem.Cell = _c;
+                                            _pItem.transform.DOLocalMove(Vector3.zero, 0.125f).SetEase(Ease.OutExpo);
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+
+
 
 
 

@@ -58,7 +58,8 @@ namespace Cihan
                 cell.transform.localPosition = worldPoint;
 
                 //cell.Color = ExampleUtils.Colors[point.GetColor4() % 4 * 4];
-
+                cell.I = point.X;
+                cell.J = point.Y;
                 cell.name = point.ToString();
                 Grid[point] = cell;
             }

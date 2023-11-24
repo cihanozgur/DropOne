@@ -78,6 +78,9 @@ namespace Cihan
             get { return SpriteRenderer.sprite.bounds.size; }
         }
 
+        public int I;
+        public int J;
+
         public bool IsBusy;
         public void Awake()
         {
