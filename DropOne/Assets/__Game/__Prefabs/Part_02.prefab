@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 1207567554203631408}
   - {fileID: 5621040131935014670}
   - {fileID: 6481114957208629888}
+  ColorIndex: 0
 --- !u!1001 &969156112199657978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,6 +62,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2021347209015901927}
     m_Modifications:
+    - target: {fileID: 3297937258244007988, guid: 883d4267f987d4a4a9e16d6a6b7fc850, type: 3}
+      propertyPath: CurrentPart
+      value: 
+      objectReference: {fileID: -6104228170367430066}
     - target: {fileID: 4967285336153934946, guid: 883d4267f987d4a4a9e16d6a6b7fc850, type: 3}
       propertyPath: m_Name
       value: PartItem
@@ -138,6 +143,10 @@ PrefabInstance:
       propertyPath: OffsetI
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3297937258244007988, guid: 883d4267f987d4a4a9e16d6a6b7fc850, type: 3}
+      propertyPath: CurrentPart
+      value: 
+      objectReference: {fileID: -6104228170367430066}
     - target: {fileID: 4967285336153934946, guid: 883d4267f987d4a4a9e16d6a6b7fc850, type: 3}
       propertyPath: m_Name
       value: PartItem (1)
@@ -219,6 +228,10 @@ PrefabInstance:
       propertyPath: OffsetJ
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3297937258244007988, guid: 883d4267f987d4a4a9e16d6a6b7fc850, type: 3}
+      propertyPath: CurrentPart
+      value: 
+      objectReference: {fileID: -6104228170367430066}
     - target: {fileID: 4967285336153934946, guid: 883d4267f987d4a4a9e16d6a6b7fc850, type: 3}
       propertyPath: m_Name
       value: PartItem (2)
@@ -296,6 +309,10 @@ PrefabInstance:
       propertyPath: OffsetI
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3297937258244007988, guid: 883d4267f987d4a4a9e16d6a6b7fc850, type: 3}
+      propertyPath: CurrentPart
+      value: 
+      objectReference: {fileID: -6104228170367430066}
     - target: {fileID: 4967285336153934946, guid: 883d4267f987d4a4a9e16d6a6b7fc850, type: 3}
       propertyPath: m_Name
       value: PartItem (3)

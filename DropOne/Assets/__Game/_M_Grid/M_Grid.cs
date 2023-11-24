@@ -57,7 +57,7 @@ namespace Cihan
                 cell.transform.localScale = Vector3.one;
                 cell.transform.localPosition = worldPoint;
 
-                cell.Color = ExampleUtils.Colors[point.GetColor4() % 4 * 4];
+                //cell.Color = ExampleUtils.Colors[point.GetColor4() % 4 * 4];
 
                 cell.name = point.ToString();
                 Grid[point] = cell;

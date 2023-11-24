@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Gamelogic.Grids;
+using Unity.VisualScripting;
 using UnityEngine;
 namespace Cihan
 {
@@ -31,7 +32,7 @@ namespace Cihan
             StartCoroutine(AddBeginParts());
             IEnumerator AddBeginParts()
             {
-                for (int a = 0; a < 15; a++)
+                for (int a = 0; a < 10; a++)
                 {
                     Part part = Instantiate(PartPrefabs[Random.Range(0, PartPrefabs.Length)], transform);
                     bool isOk = true;
@@ -39,11 +40,10 @@ namespace Cihan
                     {
                         for (int i = 0; i < SizeX; i++)
                         {
-                            yield return null;
                             SpriteCell cell = M_Grid.I.Grid[new RectPoint(i, j)];
                             part.transform.position = cell.transform.position;
                             isOk = true;
-                            for (int x = 0; x < part.PartItems.Length; x++)
+                            for (int x = 0; x < part.PartItems.Count; x++)
                             {
                                 RectPoint point = new RectPoint(part.PartItems[x].OffsetI + i, part.PartItems[x].OffsetJ + j);
                                 if (M_Grid.I.Grid.Contains(point))
@@ -60,10 +60,11 @@ namespace Cihan
                             }
                             if (isOk)
                             {
-                                for (int x = 0; x < part.PartItems.Length; x++)
+                                for (int x = 0; x < part.PartItems.Count; x++)
                                 {
                                     RectPoint point = new RectPoint(part.PartItems[x].OffsetI + i, part.PartItems[x].OffsetJ + j);
                                     M_Grid.I.Grid[point].PartItem = part.PartItems[x];
+                                    part.PartItems[x].Cell = M_Grid.I.Grid[point];
                                 }
                             }
                             if (isOk)
@@ -79,6 +80,7 @@ namespace Cihan
                     }
 
                 }
+                yield return null;
             }
 
 

@@ -6,10 +6,14 @@ namespace Cihan
 {
   public class PartItem : MonoBehaviour
   {
+    public Part CurrentPart;
     public MeshRenderer MeshRenderer;
     public int OffsetI;
     public int OffsetJ;
     int colorIndex;
+
+    public SpriteCell Cell;
+
     internal int ColorIndex
     {
       set
