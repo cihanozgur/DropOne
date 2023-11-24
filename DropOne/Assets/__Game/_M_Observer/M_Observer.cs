@@ -12,8 +12,8 @@ namespace Cihan
         public static Action OnLevelStartBegin;
         public static Action OnLevelStartComplete;
 
-  
-        
+
+
         public static Action<Vector2> OnFingerDown;
 
         private void Start()
