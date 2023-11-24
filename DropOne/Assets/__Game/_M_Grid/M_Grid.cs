@@ -32,7 +32,7 @@ namespace Cihan
 
         private void CreateGrid()
         {
-            grid = RectGrid<SpriteCell>.Rectangle(5, 10);
+            grid = RectGrid<SpriteCell>.Rectangle(7, 12);
 
             map = new RectMap(cellPrefab.Dimensions)
                 .WithWindow(ExampleUtils.ScreenRect)

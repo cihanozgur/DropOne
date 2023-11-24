@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
+  cellPrefab: {fileID: 11400002, guid: 22b80247fcafba34d93c56d885399947, type: 3}
+  root: {fileID: 3925869345729908115}
