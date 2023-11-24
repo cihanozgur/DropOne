@@ -10,6 +10,8 @@ namespace Cihan
 
     public class SpriteCell : TileCell, IGLScriptableObject
     {
+
+        public PartItem PartItem;
         [SerializeField] private Color color;
 
         [SerializeField]
@@ -76,6 +78,7 @@ namespace Cihan
             get { return SpriteRenderer.sprite.bounds.size; }
         }
 
+        public bool IsBusy;
         public void Awake()
         {
             highlightOn = false;
