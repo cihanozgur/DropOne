@@ -16,6 +16,8 @@ namespace Cihan
 
         public static Action<Vector2> OnFingerDown;
 
+        public static Action OnCreatedGrid;
+
         private void Start()
         {
             OnFirstOpen?.Invoke();
