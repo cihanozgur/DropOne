@@ -54,10 +54,20 @@ namespace Cihan
                         if (_partItem != _p)
                         {
                             _p.Cell.PartItem = null;
-                            _p.transform.DOLocalMove(_partItem.transform.localPosition, 0.125f).SetEase(Ease.OutExpo);
+                            _p.transform.SetParent(_partItem.transform);
+                            _p.transform.DOLocalMove(Vector3.zero, 0.125f).SetEase(Ease.OutExpo);
                             Destroy(_p.gameObject, 0.125f);
                         }
                     }
+                    _part.PartItems.Clear();
+                    _part.PartItems.Add(_partItem);
+                    _partItem.transform.SetParent(null);
+                    _part.transform.position = _partItem.transform.position;
+                    _partItem.transform.SetParent(_part.transform);
+                    _partItem.OffsetI = 0;
+                    _partItem.OffsetJ = 0;
+
+
 
                 }
             }
