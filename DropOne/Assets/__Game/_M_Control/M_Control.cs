@@ -104,50 +104,19 @@ namespace Cihan
                     for (int i = 0; i < _allParts.Length; i++)
                     {
                         Part _p = _allParts[i];
-                        if (_p != _part)
-                        {
-                            for (int j = 0; j < _p.PartItems.Count; j++)
-                            {
-                                PartItem _pItem = _p.PartItems[j];
-                                for (int k = _pItem.Cell.J - 1; k >= 0; k--)
-                                {
-                                    RectPoint _point = new RectPoint(_pItem.Cell.I, k);
-                                    if (grid.Contains(_point))
-                                    {
-                                        SpriteCell _c = grid[_point];
-                                        if (_c.PartItem == null)
-                                        {
-                                            _pItem.OffsetJ = 0;
-                                            _pItem.transform.SetParent(null);
-                                            _p.transform.position = _c.transform.position;
-                                            _pItem.transform.SetParent(_p.transform);
-                                            _c.PartItem = _pItem;
-                                            _pItem.Cell.PartItem = null;
-                                            _pItem.Cell = _c;
-                                            _pItem.transform.DOLocalMove(Vector3.zero, 0.125f).SetEase(Ease.OutExpo);
-                                        }
-                                        else
-                                        {
-                                            break;
-                                        }
-                                    }
-                                    else
-                                    {
-                                        break;
-                                    }
+                        //bu partın itemlarını düşeydeki boşluklara kaydır. boşluk demek cell'in partItem'ı null demek. hiç birşeyi sağa sola kaydırmıyoruz.
+                        //aşağıda boşluk yoksda sağa sola kaydırma. sadece düşeydeki boşluklara kaydırma var.
+                        //boşluk bulamazsan olduğu yerde dursunlar.partitemlerin part içindeki yapıları bozulmasın
 
-                                }
-                            }
-                        }
                     }
-
-
-
-
-
                 }
+
+
+
+
+
             }
         }
     }
-
 }
+

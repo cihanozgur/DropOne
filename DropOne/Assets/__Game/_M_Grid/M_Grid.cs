@@ -45,7 +45,7 @@ namespace Cihan
 
             Map = new RectMap(cellPrefab.Dimensions)
                 .WithWindow(ExampleUtils.ScreenRect)
-                .AlignMiddleCenter(Grid)
+                // .AlignMiddleCenter(Grid)
                 .To3DXY();
             foreach (RectPoint point in Grid)
             {
