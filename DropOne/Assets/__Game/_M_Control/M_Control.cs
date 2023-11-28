@@ -95,6 +95,7 @@ namespace Cihan
                             }
                         }
                         Destroy(_part1.gameObject);
+                        Destroy(_part1);
                     }
                 }
             }
@@ -183,6 +184,7 @@ namespace Cihan
                 if (_part2.PartItems.Count == 0)
                 {
                     Destroy(_part2.gameObject);
+                    Destroy(_part2);
                 }
             }
         }
