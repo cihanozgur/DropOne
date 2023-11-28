@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Gamelogic.Grids;
 using Unity.VisualScripting;
 using UnityEngine;
 namespace Cihan
 {
-    public class M_Parts : MonoBehaviour
+    public class M_Parts : M_Singleton<M_Parts>
     {
         public Part[] PartPrefabs;
         public int SizeX = 7;
@@ -86,6 +87,7 @@ namespace Cihan
 
 
         }
-    }
 
+
+    }
 }
