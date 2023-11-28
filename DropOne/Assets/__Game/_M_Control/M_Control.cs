@@ -51,15 +51,19 @@ namespace Cihan
                     if (cell.PartItem != null)
                     {
                         CombinePartItem(cell);
+                        yield return new WaitForSeconds(0.25f);
 
                         VerticalMove();
+                        yield return new WaitForSeconds(0.25f);
 
                         RowDelete();
+                        yield return new WaitForSeconds(0.25f);
 
                         DeterminePartClusters();
+                        yield return new WaitForSeconds(0.25f);
 
                         VerticalMove();
-
+                        yield return new WaitForSeconds(0.25f);
 
                     }
                     yield return new WaitForSeconds(0.25f);
