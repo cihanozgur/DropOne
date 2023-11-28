@@ -58,8 +58,6 @@ namespace Cihan
 
                         DeterminePartClusters();
 
-                        yield return new WaitForSeconds(2.25f);
-
                         VerticalMove();
 
 
@@ -207,10 +205,8 @@ namespace Cihan
                     Vector3 _firstPosition = _part1.transform.position;
                     int _verticalSearchCount = 1;
 
-                    int breakCount = 0;
-                    while (true && breakCount < 1000)
+                    while (true)
                     {
-                        breakCount++;
                         _part1.transform.position = _firstPosition + new Vector3(0, -_verticalSearchCount, 0);
                         _verticalSearchCount++;
 
