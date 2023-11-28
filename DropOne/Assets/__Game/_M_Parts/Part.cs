@@ -10,7 +10,7 @@ namespace Cihan
         public List<PartItem> PartItems;
         public int ColorIndex = 0;
 
-        private void Start()
+        public void Setup()
         {
             M_Color.I.ColorCounter++;
             ColorIndex = M_Color.I.ColorCounter % M_Color.I.Colors.Length;

@@ -8,6 +8,8 @@ namespace Cihan
 {
     public class M_Parts : M_Singleton<M_Parts>
     {
+
+        public Part PartEmptyPrefab;
         public Part[] PartPrefabs;
         public int SizeX = 7;
         public int SizeY = 12;
@@ -36,6 +38,7 @@ namespace Cihan
                 for (int a = 0; a < 10; a++)
                 {
                     Part part = Instantiate(PartPrefabs[Random.Range(0, PartPrefabs.Length)], transform);
+                    part.Setup();
                     bool isOk = true;
                     for (int j = 0; j < SizeY; j++)
                     {
