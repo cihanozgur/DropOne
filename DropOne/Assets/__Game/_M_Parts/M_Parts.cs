@@ -35,7 +35,7 @@ namespace Cihan
             StartCoroutine(AddBeginParts());
             IEnumerator AddBeginParts()
             {
-                for (int a = 0; a < 10; a++)
+                for (int a = 0; a < 200; a++)
                 {
                     Part part = Instantiate(PartPrefabs[Random.Range(0, PartPrefabs.Length)], transform);
                     part.Setup();

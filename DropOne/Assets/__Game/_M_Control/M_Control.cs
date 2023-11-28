@@ -51,33 +51,18 @@ namespace Cihan
                     if (cell.PartItem != null)
                     {
                         CombinePartItem(cell);
-                        yield return new WaitForSeconds(0.25f);
-
+                        yield return new WaitForSeconds(0.1f);
                         VerticalMove();
-                        yield return new WaitForSeconds(0.25f);
-
+                        yield return new WaitForSeconds(0.1f);
                         RowDelete();
-                        yield return new WaitForSeconds(0.25f);
-
+                        yield return new WaitForSeconds(0.1f);
+                        RowDelete();
+                        yield return new WaitForSeconds(0.1f);
+                        RowDelete();
+                        yield return new WaitForSeconds(0.1f);
                         DeterminePartClusters();
-                        yield return new WaitForSeconds(0.25f);
-
+                        yield return new WaitForSeconds(0.1f);
                         VerticalMove();
-                        yield return new WaitForSeconds(0.25f);
-                        VerticalMove();
-                        yield return new WaitForSeconds(0.25f);
-                        VerticalMove();
-                        yield return new WaitForSeconds(0.25f);
-                        VerticalMove();
-                        yield return new WaitForSeconds(0.25f);
-                        VerticalMove();
-                        yield return new WaitForSeconds(0.25f);
-                        VerticalMove();
-                        yield return new WaitForSeconds(0.25f);
-                        VerticalMove();
-                        yield return new WaitForSeconds(0.25f);
-                        VerticalMove();
-                        yield return new WaitForSeconds(0.25f);
 
                     }
                     yield return new WaitForSeconds(0.25f);
@@ -209,7 +194,7 @@ namespace Cihan
 
         private void VerticalMove()
         {
-            Part[] _allParts_00 = FindObjectsOfType<Part>().OrderBy(x => x.transform.position.magnitude).ToArray();
+            Part[] _allParts_00 = FindObjectsOfType<Part>().OrderBy(VerticalMoveOrderBy).ToArray();
 
             for (int i = 0; i < _allParts_00.Length; i++)
             {
@@ -272,6 +257,11 @@ namespace Cihan
 
                 }
             }
+        }
+
+        private float VerticalMoveOrderBy(Part part)
+        {
+            return part.PartItems.Min(x => x.transform.position.y);
         }
 
         private void CombinePartItem(SpriteCell cell)

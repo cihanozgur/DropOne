@@ -506,6 +506,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6590993124069287386, guid: 51747a846e3be9b4a89bd38204f9ab60, type: 3}
+      propertyPath: PartPrefabs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7172463933314465624, guid: 51747a846e3be9b4a89bd38204f9ab60, type: 3}
       propertyPath: m_Name
       value: M_Parts
@@ -602,6 +606,10 @@ PrefabInstance:
     - target: {fileID: 653342229725121527, guid: d9d6ee571a7bc354b817e0dd546caba8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637515230934904861, guid: d9d6ee571a7bc354b817e0dd546caba8, type: 3}
+      propertyPath: SizeY
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3925869345729908115, guid: d9d6ee571a7bc354b817e0dd546caba8, type: 3}
       propertyPath: m_Name
