@@ -11,7 +11,7 @@ namespace Cihan
     public MeshRenderer MeshRenderer;
     public int OffsetI;
     public int OffsetJ;
-    int colorIndex;
+    public int colorIndex;
 
     public SpriteCell Cell;
 
@@ -25,10 +25,10 @@ namespace Cihan
       get { return colorIndex; }
     }
 
-        internal List<PartItem> ToList()
-        {
-            throw new NotImplementedException();
-        }
+    internal List<PartItem> ToList()
+    {
+      throw new NotImplementedException();
     }
+  }
 
 }

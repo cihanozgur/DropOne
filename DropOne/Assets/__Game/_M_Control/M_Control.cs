@@ -56,7 +56,6 @@ namespace Cihan
 
                         RowDelete();
 
-                        // partların içindeki part itemleri kontrol et
                         // bu part itemlerin komşuluk ilişkileri bozulduysa bunları ayırıp yeni partlar oluştur
                         Part[] _allParts_00 = FindObjectsOfType<Part>().OrderBy(x => x.transform.position.magnitude).ToArray();
                         for (int i = 0; i < _allParts_00.Length; i++)
@@ -71,6 +70,7 @@ namespace Cihan
                                     for (int j = 0; j < _partItems.Count; j++)
                                     {
                                         Part _part2 = Instantiate(M_Parts.I.PartEmptyPrefab, _part1.transform.parent);
+                                        _part2.ColorIndex = _part1.ColorIndex;
                                         _part2.transform.position = _partItems[j][0].transform.position;
                                         _part2.PartItems = _partItems[j];
                                         for (int k = 0; k < _part2.PartItems.Count; k++)
@@ -173,6 +173,10 @@ namespace Cihan
             {
                 Part _part2 = _allParts_01[i];
                 _part2.PartItems = _part2.PartItems.Where(qq => qq != null).ToList();
+                if (_part2.PartItems.Count == 0)
+                {
+                    Destroy(_part2.gameObject);
+                }
             }
         }
 
