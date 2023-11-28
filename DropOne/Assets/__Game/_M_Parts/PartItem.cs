@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,11 @@ namespace Cihan
       }
       get { return colorIndex; }
     }
-  }
+
+        internal List<PartItem> ToList()
+        {
+            throw new NotImplementedException();
+        }
+    }
 
 }

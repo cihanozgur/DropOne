@@ -102,11 +102,11 @@ namespace Cihan
 
                         }
 
-                        Part[] _allParts = FindObjectsOfType<Part>().OrderBy(x => x.transform.position.magnitude).ToArray();
+                        Part[] _allParts_00 = FindObjectsOfType<Part>().OrderBy(x => x.transform.position.magnitude).ToArray();
 
-                        for (int i = 0; i < _allParts.Length; i++)
+                        for (int i = 0; i < _allParts_00.Length; i++)
                         {
-                            Part _part1 = _allParts[i];
+                            Part _part1 = _allParts_00[i];
                             if (_part1 != null)
                             {
 
@@ -163,17 +163,66 @@ namespace Cihan
 
                                 }
 
-
-
-
-
                             }
                         }
+
+                        ///////////////////////////////////
+                        //hücreleri en alttan ukarıya doğru tarayarak dolu satırları sil
+                        for (int j = 0; j < grid.Height; j++)
+                        {
+                            bool _isFull = true;
+                            for (int i = 0; i < grid.Width; i++)
+                            {
+                                RectPoint _point = new RectPoint(i, j);
+                                if (grid.Contains(_point))
+                                {
+                                    SpriteCell _cell2 = grid[_point];
+                                    if (_cell2.PartItem == null)
+                                    {
+                                        _isFull = false;
+                                        break;
+                                    }
+                                }
+                                else
+                                {
+                                    _isFull = false;
+                                    break;
+                                }
+                            }
+                            if (_isFull)
+                            {
+                                for (int i = 0; i < grid.Width; i++)
+                                {
+                                    RectPoint _point = new RectPoint(i, j);
+                                    if (grid.Contains(_point))
+                                    {
+                                        SpriteCell _cell2 = grid[_point];
+                                        if (_cell2.PartItem != null)
+                                        {
+                                            Destroy(_cell2.PartItem.gameObject);
+                                        }
+                                    }
+                                }
+                                yield return new WaitForSeconds(0.25f);
+                            }
+                        }
+
+                        Part[] _allParts_01 = FindObjectsOfType<Part>().OrderBy(x => x.transform.position.magnitude).ToArray();
+                        for (int i = 0; i < _allParts_01.Length; i++)
+                        {
+                            Part _part2 = _allParts_01[i];
+                            _part2.PartItems = _part2.PartItems.Where(qq => qq != null).ToList();
+                        }
+
+
+
+
+
+
+
                     }
                 }
-                yield return new WaitForSeconds(1f);
             }
         }
     }
 }
-
