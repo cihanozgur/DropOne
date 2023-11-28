@@ -42,14 +42,24 @@ namespace Cihan
                     bool isOk = true;
                     for (int j = 0; j < SizeY; j++)
                     {
+                        int r = Random.Range(0, 2);
                         for (int i = 0; i < SizeX; i++)
                         {
-                            SpriteCell cell = M_Grid.I.Grid[new RectPoint(i, j)];
+                            int ii = -1;
+                            if (r == 0)
+                            {
+                                ii = i;
+                            }
+                            else
+                            {
+                                ii = SizeX - i - 1;
+                            }
+                            SpriteCell cell = M_Grid.I.Grid[new RectPoint(ii, j)];
                             part.transform.position = cell.transform.position;
                             isOk = true;
                             for (int x = 0; x < part.PartItems.Count; x++)
                             {
-                                RectPoint point = new RectPoint(part.PartItems[x].OffsetI + i, part.PartItems[x].OffsetJ + j);
+                                RectPoint point = new RectPoint(part.PartItems[x].OffsetI + ii, part.PartItems[x].OffsetJ + j);
                                 if (M_Grid.I.Grid.Contains(point))
                                 {
                                     if (M_Grid.I.Grid[point].PartItem != null)
@@ -66,7 +76,7 @@ namespace Cihan
                             {
                                 for (int x = 0; x < part.PartItems.Count; x++)
                                 {
-                                    RectPoint point = new RectPoint(part.PartItems[x].OffsetI + i, part.PartItems[x].OffsetJ + j);
+                                    RectPoint point = new RectPoint(part.PartItems[x].OffsetI + ii, part.PartItems[x].OffsetJ + j);
                                     M_Grid.I.Grid[point].PartItem = part.PartItems[x];
                                     part.PartItems[x].Cell = M_Grid.I.Grid[point];
                                 }
