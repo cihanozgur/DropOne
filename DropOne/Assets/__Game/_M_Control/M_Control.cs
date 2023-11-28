@@ -56,39 +56,41 @@ namespace Cihan
 
                         RowDelete();
 
-                        // bu part itemlerin komşuluk ilişkileri bozulduysa bunları ayırıp yeni partlar oluştur
-                        Part[] _allParts_00 = FindObjectsOfType<Part>().OrderBy(x => x.transform.position.magnitude).ToArray();
-                        for (int i = 0; i < _allParts_00.Length; i++)
-                        {
-                            Part _part1 = _allParts_00[i];
-                            if (_part1 != null && _part1.PartItems.Count > 1)
-                            {
-                                List<List<PartItem>> _partItems = FindPhrases(_part1);
-                                if (_partItems.Count > 1)
-                                {
-                                    print(_partItems.Count);
-                                    for (int j = 0; j < _partItems.Count; j++)
-                                    {
-                                        Part _part2 = Instantiate(M_Parts.I.PartEmptyPrefab, _part1.transform.parent);
-                                        _part2.ColorIndex = _part1.ColorIndex;
-                                        _part2.transform.position = _partItems[j][0].transform.position;
-                                        _part2.PartItems = _partItems[j];
-                                        for (int k = 0; k < _part2.PartItems.Count; k++)
-                                        {
-                                            _part2.PartItems[k].CurrentPart = _part2;
-                                            _part2.PartItems[k].transform.SetParent(_part2.transform);
-                                        }
-                                    }
-                                    Destroy(_part1.gameObject);
-                                }
-
-                            }
-                        }
-
-
+                        DeterminePartClusters();
 
                     }
                     yield return new WaitForSeconds(0.25f);
+                }
+            }
+        }
+
+        private void DeterminePartClusters()
+        {
+            // bu part itemlerin komşuluk ilişkileri bozulduysa bunları ayırıp yeni partlar oluştur
+            Part[] _allParts_00 = FindObjectsOfType<Part>().OrderBy(x => x.transform.position.magnitude).ToArray();
+            for (int i = 0; i < _allParts_00.Length; i++)
+            {
+                Part _part1 = _allParts_00[i];
+                if (_part1 != null && _part1.PartItems.Count > 1)
+                {
+                    List<List<PartItem>> _partItems = FindPhrases(_part1);
+                    if (_partItems.Count > 1)
+                    {
+                        print(_partItems.Count);
+                        for (int j = 0; j < _partItems.Count; j++)
+                        {
+                            Part _part2 = Instantiate(M_Parts.I.PartEmptyPrefab, _part1.transform.parent);
+                            _part2.ColorIndex = _part1.ColorIndex;
+                            _part2.transform.position = _partItems[j][0].transform.position;
+                            _part2.PartItems = _partItems[j];
+                            for (int k = 0; k < _part2.PartItems.Count; k++)
+                            {
+                                _part2.PartItems[k].CurrentPart = _part2;
+                                _part2.PartItems[k].transform.SetParent(_part2.transform);
+                            }
+                        }
+                        Destroy(_part1.gameObject);
+                    }
                 }
             }
         }
