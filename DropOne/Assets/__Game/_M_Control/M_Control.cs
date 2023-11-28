@@ -58,9 +58,9 @@ namespace Cihan
 
                         DeterminePartClusters();
 
-                        // yield return new WaitForSeconds(2.25f);
+                        yield return new WaitForSeconds(2.25f);
 
-                        // VerticalMove();
+                        VerticalMove();
 
 
                     }
@@ -92,6 +92,8 @@ namespace Cihan
                             {
                                 _part2.PartItems[k].CurrentPart = _part2;
                                 _part2.PartItems[k].transform.SetParent(_part2.transform);
+                                _part2.PartItems[k].OffsetI = _part2.PartItems[k].OffsetI - _partItems[j][0].OffsetI;
+                                _part2.PartItems[k].OffsetJ = _part2.PartItems[k].OffsetJ - _partItems[j][0].OffsetJ;
                             }
                         }
                         Destroy(_part1.gameObject);
