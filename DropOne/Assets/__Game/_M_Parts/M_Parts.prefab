@@ -44,8 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4c4221bf3dba2438f199974902c3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDontDestroyOnLoad: 0
   PartPrefabs:
   - {fileID: 7044682295837393916, guid: 2e5b2690eea54314ab0563905bf0eb30, type: 3}
   - {fileID: 1083708578777192158, guid: c3c6ea5dd8d61a842ae554be1920a6c5, type: 3}
   - {fileID: -6104228170367430066, guid: ebc62399c41aeb34988fef6709026371, type: 3}
   - {fileID: 7902196817917566245, guid: 0bd8715dd806e0649b5ea5bec13516c7, type: 3}
+  - {fileID: 7902196817917566245, guid: 0cfde8fd0bca85e4d8d30476014902d9, type: 3}
+  - {fileID: 7902196817917566245, guid: 416508679ed05f54ebd27f820f68fd92, type: 3}
+  - {fileID: 7902196817917566245, guid: 9f882e256fade5644a9f74506a7103e2, type: 3}
+  - {fileID: 7902196817917566245, guid: 36c83e0724867ee42948e2226a7c11a7, type: 3}
+  - {fileID: 7902196817917566245, guid: f8a3ff2c28c85af4abe199d0df23d61b, type: 3}
+  SizeX: 7
+  SizeY: 12

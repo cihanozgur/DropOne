@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Cihan;
 using UnityEngine;
 namespace Cihan
@@ -24,6 +25,7 @@ namespace Cihan
         [ContextMenu("SetOffsetIJ")]
         public void SetOffsetIJ()
         {
+            PartItems = GetComponentsInChildren<PartItem>().ToList();
             for (int i = 0; i < PartItems.Count; i++)
             {
                 PartItems[i].OffsetI = (int)PartItems[i].transform.localPosition.x;
